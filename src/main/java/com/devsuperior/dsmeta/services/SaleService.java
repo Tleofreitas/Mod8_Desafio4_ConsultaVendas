@@ -11,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.devsuperior.dsmeta.dto.ReportDTO;
 import com.devsuperior.dsmeta.dto.SaleMinDTO;
 import com.devsuperior.dsmeta.dto.SummaryDTO;
 import com.devsuperior.dsmeta.entities.Sale;
+import com.devsuperior.dsmeta.projections.ReportProjection;
 import com.devsuperior.dsmeta.projections.SummaryProjection;
 import com.devsuperior.dsmeta.repositories.SaleRepository;
 
@@ -29,26 +31,47 @@ public class SaleService {
 		return new SaleMinDTO(entity);
 	}
 
-	public List<SummaryDTO> getSummary(String minDate, String maxDate, Pageable pageable) {
+	public List<SummaryDTO> getSummary(String minDate, String maxDate) {
+		LocalDate min = checkMinDate(minDate);
+		LocalDate max = checkMaxDate(maxDate);
 
+		List<SummaryProjection> list = repository.getSummary(min, max);
+		List<SummaryDTO> summary = list.stream().map(x -> new SummaryDTO(x)).collect(Collectors.toList());
+		return summary;
+	}
+	
+	public List<ReportDTO> getReport(String minDate, String maxDate, String name) {
+		LocalDate min = checkMinDate(minDate);
+		LocalDate max = checkMaxDate(maxDate);
+		
+		List<ReportProjection> list = repository.getReport(min, max, name);
+		List<ReportDTO> report = list.stream().map(x -> new ReportDTO(x)).collect(Collectors.toList());
+		return report;
+	};
+	
+	// Auxiliar Teste para MinDate e Conversão em Data
+	private LocalDate checkMinDate(String minDate) {
 		LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
 		LocalDate min = null;
-		LocalDate max = null;
 
 		if (minDate.isEmpty()) {
 			min = today.minusYears(1L);
 		} else {
 			min = LocalDate.parse(minDate);
 		}
-		
+		return min;
+	}
+	
+	// Auxiliar Teste para MaxDate e Conversão em Data
+	private LocalDate checkMaxDate(String maxDate) {
+		LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
+		LocalDate max = null;
+
 		if (maxDate.isEmpty()) {
 			max = today;
 		} else {
 			max = LocalDate.parse(maxDate);
 		}
-
-		List<SummaryProjection> list = repository.getSummary(min, max, pageable);
-		List<SummaryDTO> summary = list.stream().map(x -> new SummaryDTO(x)).collect(Collectors.toList());
-		return summary;
+		return max;
 	}
 }
