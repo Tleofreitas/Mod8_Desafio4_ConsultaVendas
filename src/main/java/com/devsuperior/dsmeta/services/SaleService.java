@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,6 @@ import com.devsuperior.dsmeta.dto.SaleMinDTO;
 import com.devsuperior.dsmeta.dto.SummaryDTO;
 import com.devsuperior.dsmeta.entities.Sale;
 import com.devsuperior.dsmeta.projections.ReportProjection;
-import com.devsuperior.dsmeta.projections.SummaryProjection;
 import com.devsuperior.dsmeta.repositories.SaleRepository;
 
 @Service
@@ -31,12 +31,11 @@ public class SaleService {
 		return new SaleMinDTO(entity);
 	}
 
-	public List<SummaryDTO> getSummary(String minDate, String maxDate) {
+	public Page<SummaryDTO> getSummary(String minDate, String maxDate, Pageable pageable) {
 		LocalDate min = checkMinDate(minDate);
 		LocalDate max = checkMaxDate(maxDate);
 
-		List<SummaryProjection> list = repository.getSummary(min, max);
-		List<SummaryDTO> summary = list.stream().map(x -> new SummaryDTO(x)).collect(Collectors.toList());
+		Page<SummaryDTO> summary = repository.getSummary(min, max, pageable);
 		return summary;
 	}
 	
