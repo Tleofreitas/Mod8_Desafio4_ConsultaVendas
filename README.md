@@ -40,12 +40,6 @@ Projeto trata-se de um sistema de vendas (Sale) e vendedores (Seller) proposta p
 
     -  As mesmas do caso de uso Relatório de vendas
 
-<h2>Veja o projeto</h2>
-
-Experimente a live demo.
-
-![](https://i.imgur.com/mMNCgkk.gif)
-
 <h2>Como criar e executar o Consulta de Vendas localmente</h2>
 
 Certifique-se de ter o Git e JDK17 instalados e siga as instruções abaixo.
