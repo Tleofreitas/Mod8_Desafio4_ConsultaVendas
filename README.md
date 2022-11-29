@@ -48,30 +48,23 @@ Experimente a live demo.
 
 <h2>Como criar e executar o Consulta de Vendas localmente</h2>
 
-Criar e executar o projeto em seu ambiente de desenvolvimento local é muito fácil. Certifique-se de ter o Git e JDK17 instalados e siga as instruções abaixo. Precisa de informações adicionais? entre em contato no e-mail josecarloscjj@gmail.com 
-(Estas instruções pressupõem que você esteja instalando como um usuário root.)
+Certifique-se de ter o Git e JDK17 instalados e siga as instruções abaixo.
 
 1. Clone o código fonte
 
    ````https://github.com/joosecj/desafio-consulta-vendas````
 
-2. Em sua IDE de preferência(utilizei Intellij), importe a pasta **backend** e faça o update das dependências do maven.
+2. Em sua IDE de preferência(utilizei Sring Tool Suit), importe a pasta **backend** e faça o update das dependências do maven.
 
 3. Ao executar o projeto, pode ser acessado um navegador da Web em http://localhost:8080/
 
 4. Collections do postman para fazer as requisições GET - Link : https://www.getpostman.com/collections/a5929fa46ba2b6a991d4
 
-
-
 <h2>Tecnologias utlizadas</h2>
-
 - Java
 - Springboot
 - JPA
 - Maven
 - H2 Database
-
-
-
 
 
