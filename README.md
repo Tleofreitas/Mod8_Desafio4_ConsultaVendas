@@ -1,4 +1,9 @@
-### Desafio - Consulta de vendas <img src="https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot"/> <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>  
+<h1 align="center">Desafio - Consulta de vendas</h1>
+
+<p align='center'> 
+    <img src="https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot"/>
+    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>  
+</p>
 
 Projeto trata-se de um sistema de vendas (Sale) e vendedores (Seller) proposta pela [DevSuperior](https://devsuperior.com.br/)
 [AQUI](https://tleofreitas.github.io/Portfolio/), onde o usuário informa, opcionalmente, os dados e o sistema retorna uma listagem paginada com relatório de vendas contendo id, data, quantia vendida e nome do vendedor. 
