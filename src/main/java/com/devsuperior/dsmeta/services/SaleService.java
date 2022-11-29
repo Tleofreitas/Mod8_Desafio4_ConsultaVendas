@@ -45,6 +45,8 @@ public class SaleService {
 		
 		List<ReportProjection> list = repository.getReport(min, max, name);
 		List<ReportDTO> report = list.stream().map(x -> new ReportDTO(x)).collect(Collectors.toList());
+		// Chamar outro método para buscar os Vendedores pelas Vendas 
+		// repository.searchSalesWithSellers(report);
 		return report;
 	};
 	
