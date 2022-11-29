@@ -56,10 +56,10 @@ Certifique-se de ter o Git e JDK17 instalados e siga as instruções abaixo.
 4. Collections do postman para fazer as requisições GET - Link : https://www.getpostman.com/collections/a5929fa46ba2b6a991d4
 
 <h2>Tecnologias utlizadas</h2>
-- Java
-- Springboot
-- JPA
-- Maven
-- H2 Database
+* Java
+* Springboot
+* JPA
+* Maven
+* H2 Database
 
 
