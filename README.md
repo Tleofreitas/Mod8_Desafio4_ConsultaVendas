@@ -21,8 +21,8 @@ CHECKLIST:
 ### Realizando Testes
 Video tutorial aqui
 
-<br></br>
 ---
+<br></br>
 # Para resalizar os testes localmente siga os passos abaixo
 ## 📦️ *Realizando teste localmente*
 ### 1) Clone (baixe) o repositório
